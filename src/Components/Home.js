@@ -74,6 +74,7 @@ function Home() {
                     }
                 })
                 const resData = await response.json()
+                console.log(resData);
                 settasks(resData.tasks)
             } catch (error) {
             }
@@ -105,13 +106,13 @@ function Home() {
             }
 
             {
-                tasks.length === 0 && sortBy === "" && filterBy === "" ? (
+                tasks?.length === 0 && sortBy === "" && filterBy === "" ? (
                     <h1 style={{ color: "#fff", textAlign: 'center', marginTop: '20px' }}>No tasks available</h1>
-                ) : tasks.length === 0 && sortBy === "" && filterBy !== "" ? (
+                ) : tasks?.length === 0 && sortBy === "" && filterBy !== "" ? (
                     <h1 style={{ color: "#fff", textAlign: 'center', marginTop: '20px' }}>No tasks available</h1>
-                ) : tasks.length === 0 && filterBy !== "" && sortBy === "" ? (
+                ) : tasks?.length === 0 && filterBy !== "" && sortBy === "" ? (
                     <h1 style={{ color: "#fff", textAlign: 'center', marginTop: '20px' }}>No tasks available that are {filterBy}</h1>
-                ) : null
+                ) : !tasks ? <h1 style={{ color: "#fff", textAlign: 'center', marginTop: '20px' }}>No tasks available</h1> :null
             }
 
             <Fab color="primary" aria-label="add" style={{ position: 'fixed', bottom: "30px", right: '30px' }} onClick={() => {

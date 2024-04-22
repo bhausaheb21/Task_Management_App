@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { LoginContext } from './LoginContext';
 const ProtectedRoute = ({ children }) => {
