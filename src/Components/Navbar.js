@@ -37,13 +37,13 @@ const Logo = styled.div`
 `;
 
 const DarkNavbar = () => {
-    const {logout, token } = useContext(LoginContext);
+    const { logout, token } = useContext(LoginContext);
     const navigate = useNavigate();
     const logoutHandle = () => {
         logout();
         navigate('/login')
     }
-    
+
     const [firstName, setFirstname] = useState(localStorage.getItem('firstName'))
     return (
         <Navbar>
@@ -53,6 +53,7 @@ const DarkNavbar = () => {
             </Logo>
             {
                 token && <>
+                    <NavItem>Welcome, {firstName}</NavItem>
                     <NavItem to="/">Home</NavItem>
                     <NavItem onClick={logoutHandle}>Logout</NavItem>
                 </>

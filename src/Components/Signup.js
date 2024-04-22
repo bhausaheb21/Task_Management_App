@@ -21,7 +21,6 @@ const Signup = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
         try {
             const response = await fetch(`${url}/auth/signup`, {
                 headers: {
@@ -48,8 +47,6 @@ const Signup = () => {
         catch (err) {
 
         }
-
-
     };
 
     const handleChange = (e) => {
@@ -59,17 +56,11 @@ const Signup = () => {
             [name]: value
         }));
     };
-
-
-    const handleLogout = () => {
-
-    };
-
     return (
         <LoginPageContainer>
             <LoginForm onSubmit={handleLogin} >
                 <h2 style={{ textAlign: 'center', color: '#fff', marginBottom: '30px' }}>Register Here !!</h2>
-                {error && <p style={{color:'red', fontSize : '20px', textAlign:'center', marginBottom : '30px'}}>{error}</p>}
+                {error && <p style={{ color: 'red', fontSize: '20px', textAlign: 'center', marginBottom: '30px' }}>{error}</p>}
                 <Input type="text" placeholder="FirstName" name="firstName" value={data.firstName} onChange={handleChange} />
                 <Input type="text" placeholder="LastName" name="lastName" value={data.lastName} onChange={handleChange} />
                 <Input type="text" placeholder="Username" name='email' value={data.email} onChange={handleChange} />
